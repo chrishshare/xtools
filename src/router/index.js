@@ -5,6 +5,7 @@ import ViewUI from 'view-design'
 import 'view-design/dist/styles/iview.css'
 import Home from '../views/Home.vue'
 import Attendance from '@/views/Attendance'
+import CertcardView from "@/views/CertcardView";
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -23,9 +24,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/att',
-    name: 'attendance',
-    component: Attendance
+    path: '/certcard',
+    name: 'certcard',
+    component: CertcardView
   },
   {
     path: '/about',

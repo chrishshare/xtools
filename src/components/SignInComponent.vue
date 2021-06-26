@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     signin () {
-      this.$http.post('api/v1/login/', JSON.stringify(this.signinForm)).then(result => {
+      this.$http.post('v1/users/login/', JSON.stringify(this.signinForm)).then(result => {
         if (result.status === 200) {
           localStorage.setItem('username', this.signinForm.username)
           localStorage.setItem('access', result.data.access)

@@ -5,13 +5,19 @@
       <Icon type="ios-people" />
       URL收藏
     </MenuItem>
-    <Submenu name="3">
+    <Submenu name="2">
       <template slot="title">
         <Icon type="md-laptop" />
         资源管理
       </template>
-      <MenuItem name="3-1">服务器资源</MenuItem>
+      <MenuItem name="2-1">服务器资源</MenuItem>
     </Submenu>
+
+    <MenuItem name="3">
+      <Icon type="ios-people" />
+
+      <router-link :to="{'name': 'certcard'}">身份证号码生成</router-link>
+    </MenuItem>
 
 <!--    <Submenu name="4">-->
 <!--      <template slot="title">-->
