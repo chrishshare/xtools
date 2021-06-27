@@ -56,4 +56,10 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.content {
+  width: 90%;
+  padding-left: 5%;
+  padding-top: 10px;
+}
 </style>

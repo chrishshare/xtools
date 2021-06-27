@@ -31,7 +31,7 @@ export default {
     signin () {
       this.$http.post('v1/users/login/', JSON.stringify(this.signinForm)).then(result => {
         if (result.status === 200) {
-          localStorage.setItem('username', this.signinForm.username)
+          localStorage.setItem('username', result.data.username)
           localStorage.setItem('access', result.data.access)
           location.reload()
         }

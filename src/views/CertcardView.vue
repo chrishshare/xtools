@@ -1,11 +1,11 @@
 <template>
 <!--  省 市 区县 性别 开始年份 结束年份 生成数量-->
-  <div>
+  <div class="content">
     <div class="search-area">
       <Form label-position="left" :label-width="80" label-colon>
         <!--省-->
         <Row :gutter="32">
-          <Col span="8">
+          <Col span="6">
             <FormItem label="省份">
               <Select  v-model="certCardForm.provincecode" @on-change="queryCity">
                 <Option v-for="plitem in provinceList" :value="plitem.province_code" :key="plitem.province_code">{{ plitem.province_name }}</Option>
@@ -15,7 +15,7 @@
 
 
           <!--市-->
-          <Col span="8">
+          <Col span="6">
             <FormItem label="地市">
               <Select  v-model="certCardForm.citycode"  @on-change="queryCounty">
                 <Option v-for="clitem in cityList" :value="clitem.citycode" :key="clitem.citycode">{{ clitem.cityname }}</Option>
@@ -25,7 +25,7 @@
 
 
           <!--区县-->
-          <Col span="8">
+          <Col span="6">
             <FormItem label="区县">
               <Select  v-model="certCardForm.countycode">
                 <Option v-for="cnlitem in countyList" :value="cnlitem.countycode" :key="cnlitem.countycode">{{ cnlitem.countyname }}</Option>
@@ -49,7 +49,7 @@
             </FormItem>
           </Col>
 
-          <Col span="2">
+          <Col span="4">
             <FormItem label="性别">
               <Select  v-model="certCardForm.gender">
                 <Option v-for="gdlitem in genderList" :value="gdlitem.key" :key="gdlitem.key">{{ gdlitem.value }}</Option>
@@ -120,27 +120,21 @@ export default {
   methods: {
     queryProvince () {
       this.$http.get('v1/cert/qryprovince/').then(result => {
-        console.log(result)
         this.provinceList = result.body
       })
     },
     queryCity () {
       this.$http.get('v1/cert/qrycity/', {params: {provincecode: this.certCardForm.provincecode}}).then(result => {
-        console.log(this.certCardForm.provincecode)
-        console.log(result)
         this.cityList = result.body
       })
     },
     queryCounty () {
       this.$http.get('v1/cert/qrycounty/', {params: {citycode: this.certCardForm.citycode}}).then(result => {
-        console.log(this.certCardForm.citycode)
-        console.log(result)
         this.countyList = result.body
       })
     },
     querCertcard () {
       this.$http.get('v1/cert/qrycertcard/', {params: {provincecode: this.certCardForm.provincecode, citycode: this.certCardForm.citycode, countycode: this.certCardForm.countycode, startYear: this.certCardForm.startYear, endYear: this.certCardForm.endYear, count: this.certCardForm.count, gender: this.certCardForm.gender}}).then(result => {
-        console.log(result)
         this.certcardList = result.body
       })
     }

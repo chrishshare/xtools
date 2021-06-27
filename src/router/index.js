@@ -6,6 +6,7 @@ import 'view-design/dist/styles/iview.css'
 import Home from '../views/Home.vue'
 import Attendance from '@/views/Attendance'
 import CertcardView from "@/views/CertcardView";
+import urlcollectView from "@/views/urlcollectView";
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -20,8 +21,8 @@ Vue.http.options.xhr = {withCredentials: true}
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'urlcollect',
+    component: urlcollectView
   },
   {
     path: '/certcard',

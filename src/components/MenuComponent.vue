@@ -3,7 +3,7 @@
   <Menu mode="horizontal" theme="dark" active-name="1">
     <MenuItem name="1">
       <Icon type="ios-people" />
-      URL收藏
+     <router-link :to="{'name': 'urlcollect'}">URL收藏</router-link>
     </MenuItem>
     <Submenu name="2">
       <template slot="title">
