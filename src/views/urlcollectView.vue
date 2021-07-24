@@ -100,14 +100,13 @@ export default {
   },
   methods: {
     queryUrlClassify() {
-      this.$http.get('v1/clurl/urlclass/', {params: {username: localStorage.getItem("username")}}).then(response => {
+      this.$http.get('v1/clurl/urlclass/').then(response => {
         this.urlTypeList = response.body.result
       })
     },
     queryUrlList() {
       this.$http.get('v1/clurl/url/', {
         params: {
-          username: localStorage.getItem("username"),
           typecode: this.urlForm.typecode,
           urlname: this.urlForm.urlname,
           urllink: this.urlForm.urllink,
